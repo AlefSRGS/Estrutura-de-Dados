@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Main {
     public static void menu(){
         Scanner sc = new Scanner(System.in);
+         System.out.print("Qual o tamanho do vetor de circulos: ");
+        int tamanho =  sc.nextInt();
+        ListaDeFiguras vetorCirculos = new ListaDeFiguras(tamanho);
+        System.out.println();
         int operacao = -1;
         while(operacao != 0) {
             System.out.println("1 - Inserir um circulo novo circulo no vetor dados");
@@ -12,9 +16,10 @@ public class Main {
             System.out.println("3 - Ordenar os circulos do vetor dados");
             System.out.print("Qual das operacoes ira ser realizada: ");
             operacao = sc.nextInt();
+            selectionOption(operacao, vetorCirculos);
         }
     }
-    public static void selectionOption(int operacaoSelecionada){
+    public static void selectionOption(int operacaoSelecionada, ListaDeFiguras vetorFiguras){
         Scanner sc = new Scanner(System.in);
         if(operacaoSelecionada == 1){
             System.out.print("Insira o raio do novo circulo: ");
@@ -27,15 +32,14 @@ public class Main {
             double coordY = sc.nextDouble();
             System.out.println();
             Circulo circuloNovo = new Circulo(coordX, coordY, raioDoCirculo);
-            inserirCirculo(circuloNovo);
+            vetorFiguras.inserirCirculo(circuloNovo);
+        }else if(operacaoSelecionada == 2){
+            vetorFiguras.exibirDados();
+        }else if(operacaoSelecionada == 3){
+            vetorFiguras.OrdenarDadosCrescente();
         }
     }
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Qual o tamanho do vetor de circulos: ");
-        int tamanho =  sc.nextInt();
-        ListaDeFiguras(tamanho);
-        System.out.println();
         menu();
     }
 }
