@@ -4,16 +4,7 @@ public class Circulo implements Comparable <Circulo>{
     private double coordX;
     private double coordY;
     private double raio;
-
-    public double getRaio() {
-        return raio;
-    }
-    public double getCoordX() {
-        return coordX;
-    }
-    public double getCoordY() {
-        return coordY;
-    }
+    
     public Circulo(double coordX, double coordY, double raio){
         this.coordX = coordX;
         this.coordY = coordY;
