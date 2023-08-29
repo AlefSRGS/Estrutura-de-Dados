@@ -56,15 +56,14 @@ public class Produto implements Comparable <Produto>{
         qntEstoque -= quantidadeVender;
     }
     public String toString(){
-        return "Produto: "+descricao+"\ncodigo: "+codigo+"\nValor: "+preco+"\nFornecedor: "+fornecedor+"\nQuantidade no estoque: "+qntEstoque+"\n";
+        return "Produto: "+this.descricao+"\ncodigo: "+this.codigo+"\nValor: "+this.preco+"\nFornecedor: "+this.fornecedor+"\nQuantidade no estoque: "+this.qntEstoque;
     }
     @Override
     public int compareTo(Produto outroProduto) {
-        if(codigo.equals(outroProduto.getCodigo())){
-            return 1;
-        }else{
-            return -1;
+        if (this.codigo.equals(outroProduto.getCodigo())) {
+            return 0;
+        } else {
+            return this.codigo.compareTo(outroProduto.getCodigo());
         }
-        
-    }   
+    } 
 }

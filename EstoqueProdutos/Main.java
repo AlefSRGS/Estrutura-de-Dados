@@ -11,9 +11,9 @@ public class Main {
             System.out.println("2 - Cadastrar produto por completo");
             System.out.print("Digite a opção desejada:");
             int optionCadastro = sc.nextInt();
-            System.out.println();
             if(optionCadastro == 1){
                 System.out.print("Qual o codigo do novo produto a cadastrar: ");
+                sc.nextLine();
                 String codigoProduto = sc.nextLine();
                 Produto novoProduto = new Produto(codigoProduto);
                 estoqueProdutos.cadastrarNovoProduto(novoProduto);
@@ -32,9 +32,10 @@ public class Main {
                 estoqueProdutos.cadastrarNovoProduto(novoProduto);
             }
         }else if(optionSelected == 2){
-            System.out.println("Qual o codigo do produto que deseja exibir seus dados: ");
+            System.out.print("Qual o codigo do produto que deseja exibir seus dados: ");
             String codigoProdutoConsulta = sc.nextLine();
-            estoqueProdutos.exibirDadosProdutoUnico(codigoProdutoConsulta);
+            System.out.println(estoqueProdutos.exibirDadosProdutoUnico(codigoProdutoConsulta));
+            
         }else if(optionSelected == 3){
             estoqueProdutos.exibirDadosProdutosEstoque();
         }else if(optionSelected == 4){
