@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void menu(){
         Scanner sc = new Scanner(System.in);
-         System.out.print("Qual o tamanho do vetor de circulos: ");
+        System.out.print("Qual o tamanho do vetor de circulos: ");
         int tamanho =  sc.nextInt();
         ListaDeFiguras vetorCirculos = new ListaDeFiguras(tamanho);
         System.out.println();

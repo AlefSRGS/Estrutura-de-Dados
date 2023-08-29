@@ -6,14 +6,14 @@ public class Produto implements Comparable <Produto>{
     private double preco;
     private int qntEstoque;
 
-    public void Produto(String codigo, String descricao, String fornecedor, double preco, int qntEstoque){
+    public Produto(String codigo, String descricao, String fornecedor, double preco, int qntEstoque){
         this.codigo = codigo;
         this.descricao = descricao;
         this.fornecedor = fornecedor;
         this.preco = preco;
         this.qntEstoque = qntEstoque;
     }
-    public void Produto(String codigo){
+    public Produto(String codigo){
         this.codigo = codigo;
     }
     public String getCodigo() {

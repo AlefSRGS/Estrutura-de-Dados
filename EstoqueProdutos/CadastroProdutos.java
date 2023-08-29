@@ -6,7 +6,7 @@ public class CadastroProdutos {
     private Produto[] estoqueProdutos;
     private int qntProdutoEstoque;
 
-    public void CadastroProdutos(int capacidadeEstoque){
+    public CadastroProdutos(int capacidadeEstoque){
         this.estoqueProdutos =  new Produto[capacidadeEstoque];
     }
     public void cadastrarNovoProduto(Produto novoProduto){
@@ -35,6 +35,9 @@ public class CadastroProdutos {
                 estoqueProdutos[i].toString();
             }
         }
+    }
+    public void exibirDadosProdutoUnico(String codigoProduto){
+        estoqueProdutos[consultaProdutos(codigoProduto)].toString();
     }
     public void alterarPrecoProduto(String codigoProduto, double porcentagemAlteracao, int tipoAlteracao){
         Scanner sc = new Scanner(System.in);
@@ -83,6 +86,5 @@ public class CadastroProdutos {
                 }
             }
         }
-            
     }
 }
