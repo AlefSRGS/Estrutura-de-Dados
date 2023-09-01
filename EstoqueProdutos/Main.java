@@ -18,6 +18,7 @@ public class Main {
                 Produto novoProduto = new Produto(codigoProduto);
                 estoqueProdutos.cadastrarNovoProduto(novoProduto);
             }else if(optionCadastro == 2){
+                sc.nextLine();
                 System.out.print("Qual o codigo do novo produto a cadastrar: ");
                 String codigoProduto = sc.nextLine();
                 System.out.print("Qual a descrição do novo produto a cadastrar: ");
