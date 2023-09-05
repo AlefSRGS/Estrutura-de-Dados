@@ -19,7 +19,6 @@ public class Pilha {
                 pushPalavra(fraseAdd.charAt(i));
             }
         }
-
     }
     public char[] getFrasePalavra() {
         return frasePalavra;
