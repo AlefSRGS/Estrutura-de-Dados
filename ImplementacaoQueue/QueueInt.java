@@ -21,7 +21,7 @@ public class QueueInt {
     }
     public int addQueue(int novoItemAdd){
         if(isFull()){
-            System.out.println("Fila cheio, impossivel adicionar.");
+            System.out.println("Fila cheia, impossivel adicionar.");
             return 0;
         }
         vetorInt[finalFila] = novoItemAdd;

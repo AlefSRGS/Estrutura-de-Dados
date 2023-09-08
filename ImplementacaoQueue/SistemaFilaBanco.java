@@ -41,7 +41,6 @@ public class SistemaFilaBanco {
             System.out.println();
             optionSelected(option, filaSenhasAtendimento);
         }
-        return;
     }
     public static void main(String[] args) {
         menu();
