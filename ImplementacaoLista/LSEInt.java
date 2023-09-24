@@ -1,7 +1,7 @@
 package ImplementacaoLista;
 
 public class LSEInt {
-    private LSENode firstNode;
+    protected LSENode firstNode;
 
     public boolean isEmpty(){
         if(firstNode == null){
