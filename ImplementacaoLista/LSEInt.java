@@ -24,6 +24,7 @@ public class LSEInt {
         if(!isEmpty()){
             firstNode = firstNode.getAdressNextNode();
             System.out.println("Removido com sucesso!");
+            return;
         }
         System.out.println("Lista vazia, nada a remover");
     }

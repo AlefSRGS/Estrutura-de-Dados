@@ -8,7 +8,7 @@ public class LSEInteirosSemRepetidos extends LSEInt{
             System.out.println("Valor inserido");
             return;
         }
-        if(searchDataInList(valueNewNode) != null){
+        if(searchDataInList(valueNewNode) == null){
             newNode.setAdressNextNode(firstNode);
             firstNode = newNode;
             System.out.println("Valor inserido");
@@ -37,6 +37,7 @@ public class LSEInteirosSemRepetidos extends LSEInt{
         while(auxNode.getDataNode() != valueNewNode){
             if(auxNode.getAdressNextNode() == null){
                 auxNode.setAdressNextNode(newNode);
+                System.out.println("Valor inserido");
                 return;
             }
             auxNode = auxNode.getAdressNextNode();
@@ -44,10 +45,16 @@ public class LSEInteirosSemRepetidos extends LSEInt{
         System.out.println("Valores repetidos não podem ser inseridos.");
     }
     public void removeLastNode(){
+        if(isEmpty()){
+            System.out.println("Lista vazia nada a remover.");
+            return;
+        }
         LSENode auxNode = firstNode;
         while(auxNode != null){
             if(auxNode.getAdressNextNode().getAdressNextNode() == null){
                 auxNode.setAdressNextNode(null);
+                System.out.println("Removido com sucesso.");
+                return;
             }
             auxNode = auxNode.getAdressNextNode();
         }
