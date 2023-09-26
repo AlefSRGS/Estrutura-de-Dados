@@ -64,4 +64,27 @@ public class LSEInteirosSemRepetidos extends LSEInt{
             auxNode = auxNode.getAdressNextNode();
         }
     }
+    public void removeChoseNode(int valor){
+        if(isEmpty()){
+            System.out.println("Lista vazia nada a remover.");
+            return;
+        }
+        if(firstNode.getDataNode() == valor){
+            removeFirstNode();
+            System.out.println("Removido com sucesso.");
+            return;
+        }
+        LSENode auxNode = firstNode;
+        while(auxNode != null){
+            if(auxNode.getAdressNextNode().getAdressNextNode() == null){ //testa se o ultimo node é o escolhido
+                auxNode.setAdressNextNode(null);
+                System.out.println("Removido com sucesso.");
+            }
+            if(auxNode.getAdressNextNode().getDataNode() == valor){
+                auxNode.setAdressNextNode(auxNode.getAdressNextNode().getAdressNextNode());
+                System.out.println("Removido com sucesso.");
+                return;
+            }
+        }
+    }
 }
