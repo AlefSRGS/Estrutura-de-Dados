@@ -15,7 +15,7 @@ public class AppLSEInteirosSemRepetidos {
                 case 1:
                     System.out.print("Informe o valor a ser inserido: ");
                     num = in.nextInt();
-                    numeros.insertFirstWithNoRepeat(num);
+                    numeros.insertFirst(num);
                     break;
                 case 2:
                     numeros.showAll();

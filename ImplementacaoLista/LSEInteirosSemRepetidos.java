@@ -1,7 +1,8 @@
 package ImplementacaoLista;
 
 public class LSEInteirosSemRepetidos extends LSEInt{
-    public void insertFirstWithNoRepeat(int valueNewNode){
+    @Override
+    public void insertFirst(int valueNewNode){
         LSENode newNode = new LSENode(valueNewNode);
         if (isEmpty()) {
             firstNode = newNode;
@@ -47,6 +48,10 @@ public class LSEInteirosSemRepetidos extends LSEInt{
     public void removeLastNode(){
         if(isEmpty()){
             System.out.println("Lista vazia nada a remover.");
+            return;
+        }
+        if(firstNode.getAdressNextNode() == null){
+            removeFirstNode();
             return;
         }
         LSENode auxNode = firstNode;
