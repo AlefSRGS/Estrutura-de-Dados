@@ -9,7 +9,9 @@ public class LSEInt {
         }
         return false;
     }
-
+    public LSENode getFirstNode() {
+        return firstNode;
+    }
     public void insertFirst(int valueNewNode){
         LSENode newNode = new LSENode(valueNewNode);
         if(isEmpty()){
@@ -55,5 +57,44 @@ public class LSEInt {
             auxNode = auxNode.getAdressNextNode();
         }
         return count;
+    }
+    public void insertEndList(int valueNewNode){
+        LSENode newNode = new LSENode(valueNewNode);
+        if (isEmpty()) {
+            firstNode = newNode;
+            return;
+        }
+        LSENode auxNode = firstNode;
+        while(true){
+            if(auxNode.getAdressNextNode() == null){
+                auxNode.setAdressNextNode(newNode);
+                return;
+            }
+            auxNode = auxNode.getAdressNextNode();
+        }
+    }
+    public LSEInt copiar(){
+        LSEInt copiedList = new LSEInt();
+        LSENode auxNode = firstNode;
+        while (auxNode != null) {
+            copiedList.insertEndList(auxNode.getDataNode());
+            auxNode = auxNode.getAdressNextNode();
+        }
+
+        return copiedList;
+    }
+    public void soma(LSEInt list1, LSEInt list2, LSEInt listSum){
+        if(list1.isEmpty){
+            listSum = list2.copiar();
+        }
+        if(list2.isEmpty()){
+            listSum = list1.copiar();
+        }
+        LSEInt auxNodeList1 = list1.getFirstNode();
+        LSEInt auxNodeList2 = list2.getFirstNode();
+
+        while (auxNodeList1 != null && auxNodeList2 != null){
+            
+        }
     }
 }
