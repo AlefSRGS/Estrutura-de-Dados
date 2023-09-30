@@ -90,11 +90,21 @@ public class LSEInt {
         if(list2.isEmpty()){
             listSum = list1.copiar();
         }
-        LSEInt auxNodeList1 = list1.getFirstNode();
-        LSEInt auxNodeList2 = list2.getFirstNode();
-
+        LSENode auxNodeList1 = list1.getFirstNode();
+        LSENode auxNodeList2 = list2.getFirstNode();
+        int valueNodeList1Sum = 0, valueNodeList2Sum = 0;
         while (auxNodeList1 != null && auxNodeList2 != null){
-            
+            if(auxNodeList1 == null){
+                valueNodeList1Sum = 0;
+            }else{
+                valueNodeList1Sum = auxNodeList1.getDataNode();
+            }
+            if(auxNodeList2 == null){
+                valueNodeList2Sum = 0;
+            }else{
+                valueNodeList2Sum = auxNodeList2.getDataNode();
+            }
+            listSum.insertEndList(valueNodeList1Sum+valueNodeList2Sum);
         }
     }
 }
