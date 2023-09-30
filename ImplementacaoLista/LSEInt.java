@@ -80,31 +80,31 @@ public class LSEInt {
             copiedList.insertEndList(auxNode.getDataNode());
             auxNode = auxNode.getAdressNextNode();
         }
-
         return copiedList;
     }
-    public void soma(LSEInt list1, LSEInt list2, LSEInt listSum){
-        if(list1.isEmpty){
-            listSum = list2.copiar();
-        }
-        if(list2.isEmpty()){
-            listSum = list1.copiar();
+
+    public void somar(LSEInt list1, LSEInt list2){
+        if(list1.isEmpty() && list2.isEmpty()){
+            System.out.println("As duas listas estao vazias, nada a somar.");
+            return;
         }
         LSENode auxNodeList1 = list1.getFirstNode();
         LSENode auxNodeList2 = list2.getFirstNode();
         int valueNodeList1Sum = 0, valueNodeList2Sum = 0;
-        while (auxNodeList1 != null && auxNodeList2 != null){
+        while (auxNodeList1 != null || auxNodeList2 != null){
             if(auxNodeList1 == null){
                 valueNodeList1Sum = 0;
             }else{
                 valueNodeList1Sum = auxNodeList1.getDataNode();
+                auxNodeList1 = auxNodeList1.getAdressNextNode();
             }
             if(auxNodeList2 == null){
                 valueNodeList2Sum = 0;
             }else{
                 valueNodeList2Sum = auxNodeList2.getDataNode();
+                auxNodeList2 = auxNodeList2.getAdressNextNode();
             }
-            listSum.insertEndList(valueNodeList1Sum+valueNodeList2Sum);
+            insertEndList(valueNodeList1Sum + valueNodeList2Sum);
         }
     }
 }
