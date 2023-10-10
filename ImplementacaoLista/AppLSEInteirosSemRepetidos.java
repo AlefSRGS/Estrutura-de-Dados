@@ -50,4 +50,5 @@ public class AppLSEInteirosSemRepetidos {
         System.out.println("0 -Encerrar programa");
         System.out.print("Digite a opção desejada: ");
     }
+    
 }
