@@ -1,4 +1,4 @@
-package ImplementacaoLista;
+
 
 public class LSEStack {
     private LSENode topNode;

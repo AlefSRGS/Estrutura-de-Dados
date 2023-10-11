@@ -1,4 +1,4 @@
-package ImplementacaoLista;
+
 
 public class LSEInteirosSemRepetidos extends LSEInt{
     @Override

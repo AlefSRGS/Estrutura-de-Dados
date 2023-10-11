@@ -1,4 +1,4 @@
-package ImplementacaoLista;
+
 
 public class LSENode {
 
