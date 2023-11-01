@@ -1,5 +1,6 @@
-# Atividade de Estruturas de Dados 1
-## Listas duplamente encadeadas
+# Atividades de Estruturas de Dados 1 Listas duplamente encadeadas
+
+## Atividade 1
 
 ### 1 – Implemente uma classe LDEInteirosSemRepetidoscomos métodos abaixo:
 (a) Um método (procedimento) para inserir um valor no final da lista. Este método deverá receber como parâmetro o valor a ser inserido. Este método não deverá inserir na lista valores repetidos.
@@ -25,3 +26,5 @@ LEMBRETES: O conjunto de operações que definem uma fila PADRÃO é:
 * **isFull**: Verificar se a fila está cheia. Função que não recebe parâmetro e retorna um booleano: true, se a fila estiver cheia e false, caso contrário. Como, nesta implementação, a fila nunca ficará cheia, neste caso, especificamente, a função sempre retornará false. 
 
 OBS: O teste de fila vazia não é feito dentro do método deQueue nem do head.
+ 
+

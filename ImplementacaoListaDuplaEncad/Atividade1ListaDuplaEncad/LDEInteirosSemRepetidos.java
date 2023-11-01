@@ -1,5 +1,5 @@
 
-package ImplementacaoListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade1ListaDuplaEncad;
 
 public class LDEInteirosSemRepetidos {
     private LDENode firstNode;

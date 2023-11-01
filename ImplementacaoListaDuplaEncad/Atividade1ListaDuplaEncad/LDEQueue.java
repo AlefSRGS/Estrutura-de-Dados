@@ -1,4 +1,4 @@
-package ImplementacaoListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade1ListaDuplaEncad;
 
 public class LDEQueue {
     private LDENode firstNode;
