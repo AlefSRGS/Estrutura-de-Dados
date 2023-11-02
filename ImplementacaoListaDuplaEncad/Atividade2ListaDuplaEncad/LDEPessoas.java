@@ -32,18 +32,34 @@ public class LDEPessoas {
     }
 
     public void cadastrarPessoa(Pessoa pessoaParaCadastrar) {
-        if(firstPessoa.getDataNode().compareTo(pessoaParaCadastrar) == 1){
+        LDENodePessoa novoNodePessoa = new LDENodePessoa(pessoaParaCadastrar);
+        if(isEmpty()){
+            firstPessoa = new LDENodePessoa(pessoaParaCadastrar);
+            lastPessoa = new LDENodePessoa(pessoaParaCadastrar);
+            totalPessoas++;
+            return;
+        }
+        else if(firstPessoa.getDataNode().compareTo(pessoaParaCadastrar) == 1){
             System.out.println("Pessoa já cadastrada");
+            return;
         }
         else if(lastPessoa.getDataNode().compareTo(pessoaParaCadastrar) == 1){
             System.out.println("Pessoa já cadastrada");
+            return;
+        }
+        else if(firstPessoa.getNextAdressNode() == null){
+            firstPessoa.setNextAdressNode(novoNodePessoa);
+            lastPessoa = novoNodePessoa;
+            lastPessoa.setPreviosAdressNode(firstPessoa);
+            totalPessoas++;
         }
         else{
-            LDENodePessoa auxNode = new LDENodePessoa(firstPessoa.getDataNode());
+            LDENodePessoa auxNode = firstPessoa;
             while(auxNode != null){
                 if(auxNode.getNextAdressNode() == null){
-                    auxNode.setNextAdressNode(new LDENodePessoa(pessoaParaCadastrar));
-                    auxNode.getNextAdressNode().setPreviosAdressNode(auxNode);
+                    auxNode.setNextAdressNode(novoNodePessoa);
+                    lastPessoa = novoNodePessoa;
+                    lastPessoa.setPreviosAdressNode(auxNode);
                     totalPessoas++;
                     return;
                 }
@@ -52,34 +68,53 @@ public class LDEPessoas {
         }
     }
 
-    public void cancelarCadastroPessoa(Pessoa pessoaParaCancelar) {
-        lastPessoa.getPreviosAdressNode().setNextAdressNode(null);
+    public void cancelarCadastroPessoa() {
+        if(isEmpty()){
+            System.out.println("Nada registrado");
+            return;
+        }
+        if(firstPessoa.getNextAdressNode() == null){
+            firstPessoa = null;
+            lastPessoa = null;
+            totalPessoas--;
+            return;
+        }
+        lastPessoa = lastPessoa.getPreviosAdressNode();
+        lastPessoa.setNextAdressNode(null);
         totalPessoas--;
     }
 
     public void exibirPessoas() {
+        if(isEmpty()){
+            System.out.println("Nada registrado");
+            return;
+        }
         LDENodePessoa auxNode = firstPessoa;
-        int auxCount = 0;
+        int auxCount = 1;
         while(auxNode!= null){
             System.out.printf("Pessoa %d:\n", auxCount);
+            System.out.print("Nome: ");
             System.out.println(auxNode.getDataNode().getName());
+            System.out.print("RG: ");
             System.out.println(auxNode.getDataNode().getRg());
             auxNode = auxNode.getNextAdressNode();
             auxCount++;
         }
     }
 
-    public boolean verificarPessoa(Pessoa pessoaParaVerificar) {
-        
-        if(lastPessoa.getDataNode().compareTo(pessoaParaVerificar) == 1){
+    public boolean verificarPessoa(String rgPessoaParaVerificar) {
+        if(isEmpty()){
+            return false;
+        }
+        if(lastPessoa.getDataNode().getRg().equals(rgPessoaParaVerificar)){
             return true;
         }
-        if(firstPessoa.getDataNode().compareTo(pessoaParaVerificar) == 1){
+        if(firstPessoa.getDataNode().getRg().equals(rgPessoaParaVerificar)){
             return true;
         }
         LDENodePessoa auxNode = firstPessoa.getNextAdressNode();
-        while(auxNode != null){
-            if(auxNode.getDataNode().compareTo(pessoaParaVerificar) == 1){
+        while(auxNode.getNextAdressNode() != null){
+            if(auxNode.getDataNode().getRg().equals(rgPessoaParaVerificar)){
                 return true;
             }
             auxNode = auxNode.getNextAdressNode();
@@ -88,24 +123,32 @@ public class LDEPessoas {
     }
 
     public void removerCadastroPessoa(String rgPessoaRemover){
+        if(isEmpty()){
+            System.out.println("Nada registrado");
+            return;
+        }
         if(firstPessoa.getDataNode().getRg().equals(rgPessoaRemover)){
             firstPessoa = firstPessoa.getNextAdressNode();
+            firstPessoa.setPreviosAdressNode(null);
             totalPessoas--;
             return;
         }
         if(lastPessoa.getDataNode().getRg().equals(rgPessoaRemover)){
             lastPessoa = lastPessoa.getPreviosAdressNode();
+            lastPessoa.setNextAdressNode(null);
             totalPessoas--;
+            return;
         }
         LDENodePessoa auxNode = firstPessoa.getNextAdressNode();
-        while(auxNode!= null){
+        while(auxNode.getNextAdressNode() != null){
             if(auxNode.getDataNode().getRg().equals(rgPessoaRemover)){
                 auxNode.getPreviosAdressNode().setNextAdressNode(auxNode.getNextAdressNode());
-                auxNode.getNextAdressNode().setPreviosAdressNode(auxNode);
+                auxNode.getNextAdressNode().setPreviosAdressNode(auxNode.getPreviosAdressNode());
                 totalPessoas--;
                 return;
             }
             auxNode = auxNode.getNextAdressNode();
         }
+        System.out.println("Rg informado não tem registro");
     }
 }
