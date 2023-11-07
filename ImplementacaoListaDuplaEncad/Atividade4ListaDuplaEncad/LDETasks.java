@@ -149,14 +149,14 @@ public class LDETasks {
             auxNodeTask = auxNodeTask.getNextAdressNode();
         }
     }
-    public int changePriorityTaskByDescription(String taskDescription, int newTaskPriority){
+    public void changePriorityTaskByDescription(String taskDescription, int newTaskPriority){
         if(isEmpty()){
             System.out.println("Lista vazia.");
-            return -1;
+            return;
         }
-        int oldPriorityTask = cancelTask(taskDescription).getPriorityTask();
+        cancelTask(taskDescription);
         insertTask(taskDescription, newTaskPriority);
-        return  oldPriorityTask;
+        return;
     }
 }
 

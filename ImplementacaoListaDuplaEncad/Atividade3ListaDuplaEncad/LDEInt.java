@@ -44,30 +44,37 @@ public class LDEInt {
         qtdNode++;
     }
 
-    public void removeRepetNode(int dataNode) {
+    public int removeRepetNode(int dataNode) {
         if(isEmpty()){
-            System.out.println("Nada registrado, lista vazia");
-            return;
+            return 0;
         }else if(firstNode.getDataNode() == dataNode && firstNode.getNextAdressNode() == null){
-            System.out.println("Valor unico na lista, sem repetidos.");
-            return;
+            firstNode = null;
+            lastNode = null;
+            qtdNode--;
+            return 1;
         }
         int qtdValueInList = 0;
         LDENodeInt auxNode = firstNode;
         while(auxNode != null){
             if(auxNode.getDataNode() == dataNode){
                 qtdValueInList++;
-                if(qtdValueInList > 1){
+                if(auxNode == firstNode){
+                    auxNode.getNextAdressNode().setPreviosAdressNode(null);
+                    firstNode = auxNode.getNextAdressNode();
+                }else{
                     auxNode.getPreviosAdressNode().setNextAdressNode(auxNode.getNextAdressNode());
-                    if(auxNode.getNextAdressNode() != null){
-                        auxNode.getNextAdressNode().setPreviosAdressNode(auxNode.getPreviosAdressNode());
-                    }else{
-                        lastNode = auxNode.getPreviosAdressNode();
-                    }
-                    qtdNode--;
                 }
+                if(auxNode == lastNode){
+                    auxNode.getPreviosAdressNode().setNextAdressNode(null);
+                    lastNode = auxNode.getPreviosAdressNode();
+                }else{
+                    auxNode.getNextAdressNode().setPreviosAdressNode(auxNode.getPreviosAdressNode());
+                }
+                qtdNode--;
             }
+            auxNode = auxNode.getNextAdressNode();
         }
+        return qtdValueInList;
     }
 
     public void insertNodeWithoutRepet(int numberToInsert){
