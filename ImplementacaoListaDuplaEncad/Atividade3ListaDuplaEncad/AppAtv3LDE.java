@@ -1,4 +1,4 @@
-package ImplementacaoListaDuplaEncad.Atividade3ListaDuplaEncad;
+package Atividade3ListaDuplaEncad;
 
 import java.util.Scanner;
 

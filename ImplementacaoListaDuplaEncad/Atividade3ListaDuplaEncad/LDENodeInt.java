@@ -1,6 +1,6 @@
-package ImplementacaoListaDuplaEncad.Atividade3ListaDuplaEncad;
+package Atividade3ListaDuplaEncad;
 
-public class LDENodeInt {
+public class LDENodeInt implements Comparable<LDENodeInt> {
     private int dataNode;
     private LDENodeInt nextAdressNode;
     private LDENodeInt previosAdressNode;
@@ -25,5 +25,15 @@ public class LDENodeInt {
     }
     public void setPreviosAdressNode(LDENodeInt previosAdressNode) {
         this.previosAdressNode = previosAdressNode;
+    }
+
+    @Override
+    public int compareTo(LDENodeInt otherNode) {
+        if(getDataNode() > otherNode.getDataNode()){
+            return 1;
+        } else if (getDataNode() < otherNode.getDataNode()) {
+            return -1;
+        }
+        return 0;
     }
 }
