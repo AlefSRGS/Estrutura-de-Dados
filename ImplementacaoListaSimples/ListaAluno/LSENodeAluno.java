@@ -1,4 +1,4 @@
-package ListaAluno;
+package ImplementacaoListaSimples.ListaAluno;
 
 public class LSENodeAluno{
     private Aluno dataAluno;

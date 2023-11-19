@@ -1,4 +1,4 @@
-package ListaAluno;
+package ImplementacaoListaSimples.ListaAluno;
 
 public class LSEAluno {
     private LSENodeAluno firstNodeAluno;

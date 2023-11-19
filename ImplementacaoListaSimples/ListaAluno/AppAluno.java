@@ -1,4 +1,4 @@
-package ListaAluno;
+package ImplementacaoListaSimples.ListaAluno;
 
 import java.util.Scanner;
 
