@@ -14,20 +14,37 @@ private ListaFilmes lista;	// referência para a lista de filmes daquela categor
 
 ....
 }
+
+
 public class NodePrincipal { private NodePrincipal ante;
-private Categoria info; // exemplo: “Filmes de ação” private NodePrincipal prox;
+private Categoria info; // exemplo: “Filmes de ação” 
+
+private NodePrincipal prox;
+
 // métodos da classe (gets, sets, construtor)
 ....
 }
 
+
 public class ListaCategorias {
 private NodePrincipal primeiro; private int qtd;
+
 private NodePrincipal ultimo;
+
 // métodos da classe (inserção ordenada na lista, remoção na lista, busca na lista, exibição da lista)
 ....
 }
 
-public class Filme implements Comparable <Filme> { private String titulo; // exemplo: “O Rei Leão” private String genero; // exemplo: “Musical infantil” private String classificação; // exemplo: “Livre” private int ano; // exemplo: 1994
+
+public class Filme implements Comparable <Filme> { 
+private String titulo; // exemplo: “O Rei Leão” 
+
+private String genero; // exemplo: “Musical infantil” 
+
+private String classificação; // exemplo: “Livre” 
+
+private int ano; // exemplo: 1994
+
 // métodos da classe (gets, sets, construtor, compareTo, toString)
 ....
 

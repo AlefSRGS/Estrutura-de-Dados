@@ -1,3 +1,5 @@
+package ImplementacaoListaDuplaEncad.Atividade2ListaDuplaEncad;
+
 public class LDENodePessoa {
     private Pessoa dataNode;
     private LDENodePessoa nextAdressNode;

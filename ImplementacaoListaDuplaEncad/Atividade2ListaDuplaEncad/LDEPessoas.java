@@ -1,3 +1,5 @@
+package ImplementacaoListaDuplaEncad.Atividade2ListaDuplaEncad;
+
 public class LDEPessoas {
     private LDENodePessoa firstPessoa;
     private LDENodePessoa lastPessoa;

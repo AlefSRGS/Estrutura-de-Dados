@@ -1,4 +1,4 @@
-package Atividade1ListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade1ListaDuplaEncad;
 
 public class LDENode {
     private int dataNode;

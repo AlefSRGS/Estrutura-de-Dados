@@ -1,4 +1,4 @@
-package Atividade3ListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade3ListaDuplaEncad;
 
 public class LDEInt {
     private LDENodeInt firstNode;

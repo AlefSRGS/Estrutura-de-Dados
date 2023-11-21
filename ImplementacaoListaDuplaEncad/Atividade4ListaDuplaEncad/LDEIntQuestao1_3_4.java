@@ -1,6 +1,6 @@
-package Atividade4ListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade4ListaDuplaEncad;
 
-import Atividade3ListaDuplaEncad.LDENodeInt;
+import ImplementacaoListaDuplaEncad.Atividade3ListaDuplaEncad.LDENodeInt;
 
 public  class LDEIntQuestao1_3_4 {
     private LDENodeInt primeiro;

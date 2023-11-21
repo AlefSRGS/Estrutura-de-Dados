@@ -19,11 +19,18 @@ public class Categoria implements Comparable<Categoria>{
 
     @Override
     public int compareTo(Categoria categoria) {
-        return 0;
+        return getDescricao().compareTo(categoria.getDescricao());
     }
 
     @Override
     public String toString() {
-        return "";
+        String listaFilmes = "";
+        NodeSecundario auxFilme = lista.getPrimeiro();
+        for (int i = 0; i < this.lista.getQtd(); i++) {
+            listaFilmes = listaFilmes.concat(auxFilme.getInfo()+"\n");
+            auxFilme = auxFilme.getProx();
+        }
+        return "Categoria: " + getDescricao() +":\n" +
+                listaFilmes;
     }
 }

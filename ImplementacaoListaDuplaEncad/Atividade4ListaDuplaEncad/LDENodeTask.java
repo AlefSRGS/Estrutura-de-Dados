@@ -1,4 +1,4 @@
-package Atividade4ListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade4ListaDuplaEncad;
 
 public class LDENodeTask {
     private LDENodeTask nextAdressNode;

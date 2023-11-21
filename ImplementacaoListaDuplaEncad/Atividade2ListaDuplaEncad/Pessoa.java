@@ -1,3 +1,4 @@
+package ImplementacaoListaDuplaEncad.Atividade2ListaDuplaEncad;
 
 public class Pessoa implements Comparable<Pessoa> {
     private String rg;

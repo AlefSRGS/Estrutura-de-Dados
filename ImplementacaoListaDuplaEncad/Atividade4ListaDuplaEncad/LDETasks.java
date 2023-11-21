@@ -1,4 +1,4 @@
-package Atividade4ListaDuplaEncad;
+package ImplementacaoListaDuplaEncad.Atividade4ListaDuplaEncad;
 
 public class LDETasks {
     private LDENodeTask firstNodeTask;
