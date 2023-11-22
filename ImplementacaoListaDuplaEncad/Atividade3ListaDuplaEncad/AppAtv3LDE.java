@@ -1,5 +1,6 @@
 package ImplementacaoListaDuplaEncad.Atividade3ListaDuplaEncad;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class AppAtv3LDE {
@@ -11,7 +12,7 @@ public class AppAtv3LDE {
         System.out.println("Insira os valores da lista A:");
         String option = "";
         int qtdInserido = 0;
-        while(option != "Y"){
+        while(!Objects.equals(option, "Y")){
             qtdInserido++;
             System.out.println("Insira o valor " + qtdInserido + ":");
             int valor = sc.nextInt();
@@ -23,7 +24,7 @@ public class AppAtv3LDE {
         System.out.println("Insira os valores da lista A:");
         option = "";
         qtdInserido = 0;
-        while(option != "Y"){
+        while(!Objects.equals(option, "Y")){
             qtdInserido++;
             System.out.println("Insira o valor " + qtdInserido + ":");
             int valor = sc.nextInt();

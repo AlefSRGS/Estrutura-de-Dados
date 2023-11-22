@@ -4,6 +4,19 @@ public class ListaCategorias {
     private NodePrincipal primeiro;
     private NodePrincipal ultimo;
     private int qtd;
+
+    public NodePrincipal getPrimeiro() {
+        return primeiro;
+    }
+
+    public NodePrincipal getUltimo() {
+        return ultimo;
+    }
+
+    public int getQtd() {
+        return qtd;
+    }
+
     public boolean isEmpty(){
         return primeiro == null && ultimo == null && qtd == 0;
     }
