@@ -118,6 +118,36 @@ public class AppStreamingVideo {
                         auxNodeCategoria2 = auxNodeCategoria2.getProx();
                     }
                     break;
+                case 7:
+                    if(categorias.isEmpty()){
+                        System.out.println("Nenhuma categoria");
+                        break;
+                    }
+                    NodePrincipal auxNodeCategoria3 = categorias.getPrimeiro();
+                    for (int i = 0; i < categorias.getQtd(); i++) {
+                        System.out.print("Categoria: ");
+                        System.out.println(auxNodeCategoria3.getInfo().getDescricao());
+                    }
+                    break;
+                case 8:
+                    if (categorias.isEmpty()){
+                        System.out.println("Nenhuma categoria");
+                        break;
+                    }
+                    categorias.exibirCategorias();
+                    break;
+                case 9:
+                    if (categorias.isEmpty()){
+                        System.out.println("Nenhuma categoria");
+                        break;
+                    }
+                    System.out.println("Insira a descrição da categoria que deseja ver todos os filmes: ");
+                    String descCategoriaConsulta = in.nextLine();
+                    NodePrincipal posCategoriaConsulta = categorias.buscarCategoria(descCategoriaConsulta);
+                    if(posCategoriaConsulta != null){
+                        posCategoriaConsulta.getInfo().getLista().exibirFilmes();
+                    }
+                    break;
                 case 0:
                     System.out.println("Bye bye");
                     break;
@@ -135,6 +165,9 @@ public class AppStreamingVideo {
         System.out.println("4 - Remover um filme de uma categoria");
         System.out.println("5 - Remover um filme de todas as categorias");
         System.out.println("6 - Editar informações de um filme");
+        System.out.println("7 - Listar todas as categorias");
+        System.out.println("8 - Listar todos os filmes de todas as categorias");
+        System.out.println("9 - Listar todos os filmes de uma categoria");
         System.out.println("0 - sair");
         System.out.print("Digite a opção desejada: ");
     }
