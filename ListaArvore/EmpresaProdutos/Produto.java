@@ -1,13 +1,13 @@
-package ListaArvore;
+package ListaArvore.EmpresaProdutos;
 
-public class ProdutoTree {
+public class Produto implements Comparable<Produto> {
     private final int codeProduct;
     private String description;
     private String provider;
     private double price;
     private int qtd;
 
-    public ProdutoTree(int codeProduct, String description, String provider, double price, int qtd) {
+    public Produto(int codeProduct, String description, String provider, double price, int qtd) {
         this.codeProduct = codeProduct;
         this.description = description;
         this.provider = provider;
@@ -49,5 +49,23 @@ public class ProdutoTree {
 
     public void setQtd(int qtd) {
         this.qtd = qtd;
+    }
+
+    @Override
+    public int compareTo(Produto outroProduto){
+        if(getCodeProduct() > outroProduto.getCodeProduct()){
+            return 1;
+        }else if(getCodeProduct() < outroProduto.getCodeProduct()){
+            return -1;
+        }else{
+            return 0;
+        }
+    }
+    public String toString(){
+        return "Produto:" + "\n" 
+                + this.description + "\n"
+                + "Provedor: " + this.provider + "\n"
+                + "Preço: R$" + this.price + "\n"
+                + "Quantidade estoque: " + this.qtd;
     }
 }
