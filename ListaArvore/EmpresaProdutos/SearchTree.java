@@ -1,7 +1,5 @@
 package ListaArvore.EmpresaProdutos;
 
-import java.util.Stack;
-
 public class SearchTree {
     private TreeNode raiz;
 
@@ -54,14 +52,44 @@ public class SearchTree {
     }
 
     public Produto buscaNaoRecursiva(int codigoProduto){
-        Stack<TreeNode> stack = new Stack<TreeNode>();
-        TreeNode auxNode = this.raiz;
-        stack.push(auxNode);
-        while(stack.isEmpty() && auxNode != null){
-
+        TreeNode auxNodeTree = raiz;
+        while (auxNodeTree != null) {
+            if (codigoProduto == auxNodeTree.getInfo().getCodeProduct()) {
+                return auxNodeTree;
+            } else if (codigoProduto < auxNodeTree.getInfo().getCodeProduct()) {
+                auxNodeTree = auxNodeTree.getLeft(); 
+            } else {
+                auxNodeTree = auxNodeTree.getRight(); 
+            }
         }
+        return null;
     }
+
     public void insertNaoRecursivo(Produto novoProduto){
-        
+        TreeNode newNode = new TreeNode(novoProduto);
+        if (isEmpty()) {
+            raiz = newNode;
+            return;
+        }
+        TreeNode pai = raiz;
+        TreeNode filho = null;
+
+        while (true) {
+            filho = pai;
+            if (novoProduto.compareTo(pai.getInfo()) < 0) {
+                pai = pai.getLeft();
+                if (pai == null) {
+                    filho.setLeft(newNode);
+                    return;
+                }
+            }
+            else {
+                pai = pai.getRight(); 
+                if (pai == null) {
+                    filho.setRight(newNode);
+                    return;
+                }
+            }
+        }
     }
 }
