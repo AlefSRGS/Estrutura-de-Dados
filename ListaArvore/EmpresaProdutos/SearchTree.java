@@ -55,7 +55,7 @@ public class SearchTree {
         TreeNode auxNodeTree = raiz;
         while (auxNodeTree != null) {
             if (codigoProduto == auxNodeTree.getInfo().getCodeProduct()) {
-                return auxNodeTree;
+                return auxNodeTree.getInfo();
             } else if (codigoProduto < auxNodeTree.getInfo().getCodeProduct()) {
                 auxNodeTree = auxNodeTree.getLeft(); 
             } else {
