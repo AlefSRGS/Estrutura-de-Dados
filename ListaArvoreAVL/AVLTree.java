@@ -1,4 +1,4 @@
-package ListaArvoreAVL.InsercaoAVL;
+package ListaArvoreAVL;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -13,7 +13,7 @@ public class AVLTree<T extends Comparable<T>> {
 
     public void insert(T value){
         if(this.isEmpty()){
-            this.root = new AVLNode(value);
+            this.root = new AVLNode<T>(value);
             this.status = true;
         }
         else{
@@ -165,5 +165,77 @@ public class AVLTree<T extends Comparable<T>> {
             System.out.println(r.getInfo());
             percorrerEmOrdem(r.getRight());
         }
+    }
+    public void remover(T valorRemover){
+        this.root = removerNode(root, valorRemover);
+    }
+    private AVLNode<T> removerNode(AVLNode<T> avlNode, T valor) {
+        // Verifica se o nó atual é nulo, indicando que o valor não está na árvore
+        if (avlNode == null) {
+            return avlNode;
+        } else if (valor.compareTo(avlNode.getInfo()) < 0) {
+            // Se o valor a ser removido for menor que o valor do nó atual, vai para a subárvore à esquerda
+            avlNode.setLeft(removerNode(avlNode.getLeft(), valor));
+        } else if (avlNode.compareTo(valor) > 0) {
+            // Se o valor a ser removido for maior que o valor do nó atual, vai para a subárvore à direita
+            avlNode.setRight(removerNode(avlNode.getRight(), valor));
+        } else {
+            // Achou o nó que precisa ser removido
+            if (avlNode.getLeft() == null) {
+                // Se o nó não tem filho à esquerda
+                if (this.status == true) {
+                    // Verifica se a árvore está desbalanceada e realiza as rotações necessárias
+                    switch (avlNode.getFatBal()) {
+                        case 1:
+                            avlNode.setFatBal(0);
+                            this.status = false;
+                            break;
+                        case 0:
+                            avlNode.setFatBal(-1);
+                            break;
+                        case -1:
+                            avlNode = this.rotateRight(avlNode);
+                            break;
+                        default:
+                            break;
+                    }
+                    avlNode = avlNode.getRight();
+                }
+            } else if (avlNode.getRight() == null) {
+                // Se o nó não tem filho à direita
+                if (this.status == true) {
+                    // Verifica se a árvore está desbalanceada e realiza as rotações necessárias
+                    switch (avlNode.getFatBal()) {
+                        case 1:
+                            avlNode = this.rotateLeft(avlNode);
+                            break;
+                        case 0:
+                            avlNode.setFatBal(1);
+                            break;
+                        case -1:
+                            avlNode.setFatBal(0);
+                            this.status = false;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                avlNode = avlNode.getLeft();
+            } else {
+                // Se o nó tem ambos os filhos
+                // Encontra o nó mais à direita da subárvore esquerda
+                AVLNode<T> replaceNode = new AVLNode<T>(avlNode.getLeft().getInfo());
+                while (replaceNode.getRight() != null) {
+                    replaceNode = replaceNode.getRight();
+                }
+                // Cria um novo nó com o valor do nó substituto
+                AVLNode<T> novoNode = new AVLNode<T>(replaceNode.getInfo());
+                // Substitui o nó removido 
+                novoNode.setRight(avlNode.getRight());
+                novoNode.setLeft(removerNode(avlNode.getLeft(), replaceNode.getInfo()));
+                avlNode = novoNode;
+            }
+        }
+        return avlNode;
     }
 }

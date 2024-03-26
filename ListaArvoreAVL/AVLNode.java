@@ -1,4 +1,4 @@
-package ListaArvoreAVL.InsercaoAVL;
+package ListaArvoreAVL;
 
 class AVLNode<T extends Comparable<T>> {
     private AVLNode<T> left;
@@ -33,5 +33,8 @@ class AVLNode<T extends Comparable<T>> {
     }
     void setFatBal(int fatBal) {
         this.fatBal = fatBal;
+    }
+    public int compareTo(T valor) {
+        return 0;
     }
 }
