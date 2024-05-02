@@ -1,4 +1,4 @@
-package ListaArvore.EmpresaProdutos;
+package ListaArvoreBinaria.EmpresaProdutos;
 
 import java.util.Scanner;
 

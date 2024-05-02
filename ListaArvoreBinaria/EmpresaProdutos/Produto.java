@@ -1,4 +1,4 @@
-package ListaArvore.EmpresaProdutos;
+package ListaArvoreBinaria.EmpresaProdutos;
 
 public class Produto implements Comparable<Produto> {
     private final int codeProduct;

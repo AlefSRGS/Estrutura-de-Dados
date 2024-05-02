@@ -1,4 +1,4 @@
-package ListaArvore.EmpresaProdutos;
+package ListaArvoreBinaria.EmpresaProdutos;
 
 public class TreeNode {
     private Produto info;

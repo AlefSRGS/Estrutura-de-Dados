@@ -1,4 +1,4 @@
-package ListaArvore;
+package ListaArvoreBinaria;
 public class TreeNodeNumber {
 
     
